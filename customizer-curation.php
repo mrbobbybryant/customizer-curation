@@ -19,6 +19,5 @@ if ( !defined( 'CUSTOMIZER_CURATION_VERSION' ) ) {
 require_once __DIR__ . '/core/autoload.php';
 
 \OMG\Autoload\autoload( __DIR__. '/core' );
-\OMG\Autoload\autoload( __DIR__. '/fields' );
 
 Customizer_Curation\Core\setup();

@@ -1,0 +1,29 @@
+{
+	"name": "customizer-curation",
+	"description": "A customizer field for curating content via the customizer.",
+	"version": "0.1.0",
+	"type": "library",
+	"keywords": [],
+	"homepage": "https://github.com/mrbobbybryant/customizer-curation",
+	"license": "GPL-2.0+",
+	"author": {
+		"name": "Bobby Bryant",
+		"email": "bobby@crossfield.com",
+		"homepage": "Bobby Bryant",
+		"role": "Developer"
+	},
+  "minimum-stability": "dev",
+	"repositories" : [
+		{
+			"type" : "composer",
+			"url"  : "https://wpackagist.org"
+		}
+	],
+	"require": {},
+    "require-dev": {
+	},
+  "autoload": {
+      "psr-0": { "Assetic": "src/" },
+      "files": [ "customizer-curation.php" ]
+  }
+}
