@@ -19,7 +19,9 @@
 			"url"  : "https://wpackagist.org"
 		}
 	],
-	"require": {},
+	"require": {
+		"aaronholbrook/autoload": "dev-master"
+	},
     "require-dev": {
 	},
   "autoload": {

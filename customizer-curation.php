@@ -16,8 +16,8 @@ if ( !defined( 'CUSTOMIZER_CURATION_VERSION' ) ) {
 	define( 'CUSTOMIZER_CURATION_VERSION', '0.1.0' );
 }
 
-require_once __DIR__ . '/core/autoload.php';
+if ( file_exists( CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php' ) ) {
+	require_once CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php';
+}
 
-\OMG\Autoload\autoload( __DIR__. '/core' );
-
-Customizer_Curation\Core\setup();
+\AaronHolbrook\Autoload\autoload( CUSTOMIZER_CURATION_DIR . '/core' );

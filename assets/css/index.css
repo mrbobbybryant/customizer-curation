@@ -1,1 +1,17 @@
+input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: #FFF;
+}
 
+.customizer-curation-list-input, .customizer-curation-input {
+    padding-left: 30px;
+}
+
+.show {
+   background:
+     url('/wp-admin/images/spinner.gif')
+     no-repeat
+     left center;
+}
