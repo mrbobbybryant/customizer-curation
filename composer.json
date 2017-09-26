@@ -1,7 +1,7 @@
 {
 	"name": "customizer-curation",
 	"description": "A customizer field for curating content via the customizer.",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "library",
 	"keywords": [],
 	"homepage": "https://github.com/mrbobbybryant/customizer-curation",
