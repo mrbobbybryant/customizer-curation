@@ -10,7 +10,7 @@ class Customizer_Curation extends WP_Customize_Control {
 
 	public $description;
 
-	public $placeholder;
+	public $placeholder = '';
 
 	public $options;
 
@@ -33,6 +33,10 @@ class Customizer_Curation extends WP_Customize_Control {
 
 		if ( isset( $args['description'] ) && ! empty( $args['description']) ) {
 			$this->description = $args['description'];
+		}
+
+		if ( isset( $args['placeholder'] ) && ! empty( $args['placeholder']) ) {
+			$this->description = $args['placeholder'];
 		}
 
         $this->options = $this->fetch_initial_options();
@@ -95,7 +99,10 @@ class Customizer_Curation extends WP_Customize_Control {
 		?>
 
 		<div class="customizer-curation-control">
-            <label for="customizer-curation-input-<?php echo $this->id; ?>"><?php echo $this->label ?></label>
+            <span class="customize-control-title">
+                <label for="customizer-curation-input-<?php echo $this->id; ?>"><?php echo $this->label ?></label>
+            </span>
+
             <?php if ( ! empty( $this->description ) ) : ?>
                 <p class="customizer-curation-description">
                     <?php echo esc_html( $this->description ); ?>
@@ -111,7 +118,7 @@ class Customizer_Curation extends WP_Customize_Control {
 	}
 
 	private function render_autosuggest_list( $values ) {
-		if ( empty( $listItems ) ) {
+		if ( empty( $values ) ) {
 			$values = [];
 		}
 
@@ -122,6 +129,7 @@ class Customizer_Curation extends WP_Customize_Control {
             <input
                 type="text"
                 name="<?php echo $this->id; ?>"
+                placeholder="<?php echo esc_attr( $this->placeholder ); ?>"
                 class="customizer-curation-list-input"
                 id="customizer-curation-input-<?php echo $this->id; ?>"
                 list="<?php echo $this->id; ?>"
@@ -139,11 +147,13 @@ class Customizer_Curation extends WP_Customize_Control {
 	    ob_start(); ?>
         <ul class="<?php echo esc_attr( $class ); ?>">
 		    <?php foreach( $listItems as $value ) : ?>
-                <li class=customizer-curation-list-item data-id="<?php echo esc_attr( $value->id ); ?>">
+                <li class=text-list-item data-id="<?php echo esc_attr( $value->id ); ?>">
                     <span><?php echo esc_html( $value->title ); ?></span>
-                    <svg viewBox="0 0 20 20">
-                        <path d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zM15 13l-3-3 3-3-2-2-3 3-3-3-2 2 3 3-3 3 2 2 3-3 3 3z"></path>
-                    </svg>
+                    <div class="list-icon">
+                        <svg viewBox="0 0 20 20">
+                            <path d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zM15 13l-3-3 3-3-2-2-3 3-3-3-2 2 3 3-3 3 2 2 3-3 3 3z"></path>
+                        </svg>
+                    </div>
                 </li>
 		    <?php endforeach; ?>
         </ul>
