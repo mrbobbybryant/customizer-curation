@@ -1,7 +1,7 @@
 {
 	"name": "developwithwp/customizer-curation",
 	"description": "An autosuggest field for curating content via the customizer.",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"type": "package",
 	"keywords": [],
 	"homepage": "https://github.com/mrbobbybryant/customizer-curation",
