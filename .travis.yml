@@ -16,7 +16,7 @@ deploy:
   api_key:
     secure: WWsRdPkY5s5U+yM8HCc8haNqfqW5QaGDVyt4zZZV7DBdImjJEJ2K00O3Agg1x+K1hz8ylpT94b6VPkaFMFdzPjdAhWAf5U3trJZtsKNRc5QeVkwHhuKT/47Q593EZ5oXlAO+yrwOkMHzjYe7JwCN6LsEvc4VKXzC35x61GIMcsLh/Yqtg4z+zXGar2wJuC1xMyioNR6RilqmBdlCOGLTtdhaOGhYNT01z+ZLs40UNpA2NzcknM7W77BY4HKBXFyrOu4gb3Lbo884Ej7av4N32beorOPOSb2moivJ3KNVA2jMW6tXkNq6x66fFp9N7QS0bmRrCkYj3FLXJ957WNcbC23JKMZ/kKheUCf+jrDpn4swqroNT+vkVt98sZ1oiZruerE6EedmMgxjPIPChA/KWDwRvUmpw6qRk5Lk7MNc/nFsSt2yctuzDGJYHiko7JFQfdPVzv8sqMY0o5ZdjtevmcQZrJrU3+k0v3DtEK9v4E/1F7nYjwsRQOwOfVpZ1EO2zISL2yPh6928S0h3o/YwP3YWwuT3bWojt04afT5hb2sEFwpokyAeHaIOFZsK9Ns8UP+2REiP/opuTdmq3vau3qNnxlJVYC3nF5TeweUfu/62NugG+Bkt/eWWcIE6t8hdi8RIZ/NBq61nVkhfHAZbVtQkG/lTagM8DYRYfp/HCN0=
   file_glob: true
-  file: dists/*
+  file: dist/*
   skip_cleanup: true
   on:
     repo: mrbobbybryant/customizer-curation
