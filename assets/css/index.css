@@ -7,19 +7,12 @@ input::-webkit-calendar-picker-indicator {
 
 .customizer-curation-list-input, .customizer-curation-input {
     padding-left: 30px;
+    position: relative;
 }
 
 .customizer-curation-description {
     font-style: italic;
 }
-
-/*.customizer-curation-control {
-    & label {
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 20px;
-    }
-}*/
 
 .show {
    background:
@@ -53,4 +46,8 @@ input::-webkit-calendar-picker-indicator {
             fill: #dc3232;
         }
     }
+}
+
+.list-icon {
+    margin-left: auto;
 }

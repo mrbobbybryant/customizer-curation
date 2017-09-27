@@ -66,9 +66,9 @@ const getOptions = ( xhr, callback, input, endpoint ) => {
     }, false);
 
     xhr.onreadystatechange = function() {
-        if ( xhr.readyState === 4 && isJSON( xhr.responseText ) ) {
+        if ( xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200 ) {
             callback(false, { results: JSON.parse( xhr.responseText ), input: input } );
-        } else {
+        } else if ( xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 400 ) {
             if ( xhr.responseText && isJSON( xhr.responseText ) ) {
                 callback( { message: JSON.parse( xhr.responseText ), input: input }, false );
             }

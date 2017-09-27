@@ -1,15 +1,19 @@
 export default function( parent, hiddenInput ) {
     const hiddenEl = parent.querySelector(hiddenInput);
 
-    const getCurrentValue = () => JSON.parse( hiddenEl.value );
+    const getCurrentValue = () => {
+        const value = hiddenEl.value;
+
+        if ( value ) {
+            return JSON.parse( value );
+        } else {
+            return [];
+        }
+
+    };
 
     const addValue = (value) => {
         let currentValue = getCurrentValue();
-
-        if ( !currentValue) {
-            currentvalue = [];
-        }
-        
         return currentValue.concat( value );
     }
 

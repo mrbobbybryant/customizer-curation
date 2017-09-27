@@ -19,13 +19,13 @@ document.addEventListener( 'DOMContentLoaded', function() {
      list: '.customizer-curation-list-list',
      hidden: '.customizer-curation-list-hidden',
      listTemplate: createAutoSuggestItem,
-     endpoint: `${OMGFields.baseURL}/wp-json/wp/v2/posts?search=`
+     endpoint: `${CustomizerCuration.baseURL}/wp-json/wp/v2/${CustomizerCuration.resource}?search=`
     });
 
     autoItem({
   	  parent: '.customizer-curation',
         input: '.customizer-curation-input',
   	  hidden: '.customizer-curation-hidden',
-  	  endpoint: `${OMGFields.baseURL}/wp-json/wp/v2/posts?search=`
+  	  endpoint: `${CustomizerCuration.baseURL}/wp-json/wp/v2/${CustomizerCuration.resource}?search=`
     });
 } );

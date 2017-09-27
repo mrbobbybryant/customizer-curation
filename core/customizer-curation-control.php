@@ -22,7 +22,7 @@ class Customizer_Curation extends WP_Customize_Control {
 		parent::__construct( $manager, $id, $args );
 
 		if ( ! isset( $args['resource'] ) || empty( $args['resource'] ) ) {
-		    $this->resource = 'post';
+		    $this->resource = 'posts';
         } else {
 		    $this->resource = $args['resource'];
         }
@@ -36,7 +36,7 @@ class Customizer_Curation extends WP_Customize_Control {
 		}
 
 		if ( isset( $args['placeholder'] ) && ! empty( $args['placeholder']) ) {
-			$this->description = $args['placeholder'];
+			$this->placeholder = $args['placeholder'];
 		}
 
         $this->options = $this->fetch_initial_options();
@@ -46,15 +46,7 @@ class Customizer_Curation extends WP_Customize_Control {
 		wp_enqueue_script(
             'customizer-curation-js',
             CUSTOMIZER_CURATION_URL . '/customizer-curation/dist/index.bundle.js',
-            array( 'jquery', 'autocomplete-js' ),
-            CUSTOMIZER_CURATION_VERSION,
-            true
-        );
-
-		wp_enqueue_script(
-            'autocomplete-js',
-            CUSTOMIZER_CURATION_URL . '/customizer-curation/assets/vendor/auto-complete.min.js',
-            array(),
+            array( 'jquery' ),
             CUSTOMIZER_CURATION_VERSION,
             true
         );
@@ -62,13 +54,6 @@ class Customizer_Curation extends WP_Customize_Control {
 		wp_enqueue_style(
 			'customizer-curation-css',
 			CUSTOMIZER_CURATION_URL . '/customizer-curation/dist/index.bundle.css',
-			array(),
-			CUSTOMIZER_CURATION_VERSION
-		);
-
-		wp_enqueue_style(
-			'autocomplete-css',
-			CUSTOMIZER_CURATION_URL . '/customizer-curation/assets/vendor/auto-complete.css',
 			array(),
 			CUSTOMIZER_CURATION_VERSION
 		);
