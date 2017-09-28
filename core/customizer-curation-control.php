@@ -60,7 +60,7 @@ class Customizer_Curation extends WP_Customize_Control {
 
 		wp_enqueue_style(
 			'dragula-css',
-			OMG_FIELDS_URL . '/customizer-curation/node_modules/dragula/dist/dragula.min.css',
+			OMG_FIELDS_URL . '/developwithwp/customizer-curation/node_modules/dragula/dist/dragula.min.css',
 			array(),
 			OMG_FIELDS_VERSION
 		);
