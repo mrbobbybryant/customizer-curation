@@ -18,5 +18,8 @@ deploy:
   file_glob: true
   file: dist/*
   skip_cleanup: true
+  overwrite: true
   on:
+    tags: true
     repo: mrbobbybryant/customizer-curation
+    all_branches: true
