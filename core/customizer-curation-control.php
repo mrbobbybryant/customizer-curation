@@ -45,7 +45,7 @@ class Customizer_Curation extends WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_script(
             'customizer-curation-js',
-            CUSTOMIZER_CURATION_URL . '/customizer-curation/dist/index.bundle.js',
+            CUSTOMIZER_CURATION_URL . '/developwithwp/customizer-curation/dist/index.bundle.js',
             array( 'jquery' ),
             CUSTOMIZER_CURATION_VERSION,
             true
@@ -53,7 +53,7 @@ class Customizer_Curation extends WP_Customize_Control {
 
 		wp_enqueue_style(
 			'customizer-curation-css',
-			CUSTOMIZER_CURATION_URL . '/customizer-curation/dist/index.bundle.css',
+			CUSTOMIZER_CURATION_URL . '/developwithwp/customizer-curation/dist/index.bundle.css',
 			array(),
 			CUSTOMIZER_CURATION_VERSION
 		);
