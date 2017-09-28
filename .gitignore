@@ -1,4 +1,7 @@
 node_modules
 .DS_Store
 vendor
-dist
+index.bundle.css
+index.bundle.css.map
+index.bundle.js
+index.bundle.js.map
