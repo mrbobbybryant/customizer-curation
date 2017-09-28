@@ -1,39 +1,43 @@
+/* global jQuery */
 export const removeItems = ( Hidden, onRemove ) => {
-    return (value) => {
-        Hidden.remove(value, onRemove);
-        jQuery( Hidden.el ).trigger( 'change' );
-    }
-}
+	return ( value ) => {
+		Hidden.remove( value, onRemove );
+		jQuery( Hidden.el ).trigger( 'change' );
+	};
+};
 
 export const dragItems = ( Hidden, onDrag ) => {
-    return ( list, listItems ) => {
-        const values = onDrag(list, listItems);
-        Hidden.update(values);
-        jQuery( Hidden.el ).trigger( 'change' );
-    }
-}
+	return ( list, listItems ) => {
+		const values = onDrag( list, listItems );
 
-export const onDragObject = (list, listItems) => {
-    return [].reduce.call( listItems, (acc, listItem) => {
-        const value = {
-            id: listItem.dataset.id,
-            title: listItem.querySelector('span').innerHTML
-        }
-        return acc.concat([value]);
-    }, [] );
-}
+		Hidden.update( values );
+		jQuery( Hidden.el ).trigger( 'change' );
+	};
+};
 
-export const onDragText = (list, listItems) => {
-    return [].reduce.call( listItems, (acc, listItem) => {
-        const value = listItem.querySelector('span').innerHTML;
-        return acc.concat([value]);
-    }, [] );
-}
+export const onDragObject = ( list, listItems ) => {
+	return [].reduce.call( listItems, ( acc, listItem ) => {
+		const value = {
+			id: listItem.dataset.id,
+			title: listItem.querySelector( 'span' ).innerHTML
+		};
 
-export const onRemoveObject = (currentValue, newValue) => {
-    return currentValue.filter( (current) => current.title !== newValue );
-}
+		return acc.concat( [value] );
+	}, [] );
+};
 
-export const onRemoveText = (currentValue, newValue) => {
-    return currentValue.filter( (current) => current !== newValue );
-}
+export const onDragText = ( list, listItems ) => {
+	return [].reduce.call( listItems, ( acc, listItem ) => {
+		const value = listItem.querySelector( 'span' ).innerHTML;
+
+		return acc.concat( [value] );
+	}, [] );
+};
+
+export const onRemoveObject = ( currentValue, newValue ) => {
+	return currentValue.filter( ( current ) => current.title !== newValue );
+};
+
+export const onRemoveText = ( currentValue, newValue ) => {
+	return currentValue.filter( ( current ) => current !== newValue );
+};

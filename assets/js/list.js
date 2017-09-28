@@ -1,43 +1,45 @@
 import dragula from 'dragula';
 
-export default function( parent, args ) {
-    const list = parent.querySelector(args.list);
+const registerRemoveEvents = ( list, onRemove ) => {
+	const listItems = list.querySelectorAll( 'li' );
 
-    registerDragEvents(list, args.onDrag);
-    registerRemoveEvents(list, args.onRemove);
+	list.addEventListener( 'click', ( e ) => {
+		const target = ( e.target.tagName === 'svg' ) ? e.target : e.target.closest( 'svg' );
 
-    return {
-        add: function(value) {
-            const html = args.listTemplate( value );
-            const listItem = document.createRange().createContextualFragment(html);
+		if ( target.tagName === 'svg' ) {
+			const listItem = e.target.closest( 'li' );
+			const value = listItem.querySelector( 'span' ).innerHTML;
 
-            list.appendChild( listItem );
-        }
-    }
-}
+			list.removeChild( listItem );
+			onRemove( value );
+		}
+	} );
 
-const registerRemoveEvents = (list, onRemove) => {
-    const listItems = list.querySelectorAll('li');
+	return listItems;
+};
 
-    list.addEventListener('click', (e) => {
-        const target = ('svg' === e.target.tagName) ? e.target : e.target.closest('svg');
+const registerDragEvents = ( list, callback ) => {
+	const drake = dragula( [list] );
 
-        if ( 'svg' === target.tagName ) {
-            const listItem = e.target.closest('li');
-            const value = listItem.querySelector('span').innerHTML;
-            list.removeChild( listItem );
-            onRemove( value );
-        }
-    });
+	drake.on( 'dragend', ( el ) => {
+		const listItems = list.querySelectorAll( 'li' );
 
-    return listItems;
-}
+		callback( list, listItems );
+	} );
+};
 
-const registerDragEvents = (list, callback) => {
-    const drake = dragula([list]);
+export default function ( parent, args ) {
+	const list = parent.querySelector( args.list );
 
-    drake.on('dragend', (el) => {
-        const listItems = list.querySelectorAll('li');
-        callback(list, listItems);
-    });
+	registerDragEvents( list, args.onDrag );
+	registerRemoveEvents( list, args.onRemove );
+
+	return {
+		add: function ( value ) {
+			const html = args.listTemplate( value );
+			const listItem = document.createRange().createContextualFragment( html );
+
+			list.appendChild( listItem );
+		}
+	};
 }
