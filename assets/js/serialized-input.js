@@ -1,6 +1,4 @@
-export default function ( parent, hiddenInput ) {
-	const hiddenEl = parent.querySelector( hiddenInput );
-
+export default function ( hiddenEl ) {
 	const getCurrentValue = () => {
 		const value = hiddenEl.value;
 

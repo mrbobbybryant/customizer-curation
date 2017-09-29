@@ -16,14 +16,20 @@ const createAutoSuggestItem = ( value ) => {
 };
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	autoList( {
-		parent: '.customizer-curation-list',
-		input: '.customizer-curation-list-input',
-		list: '.customizer-curation-list-list',
-		hidden: '.customizer-curation-list-hidden',
-		listTemplate: createAutoSuggestItem,
-		endpoint: `${CustomizerCuration.baseURL}/wp-json/wp/v2/${CustomizerCuration.resource}?search=`
-	} );
+	const autoLists = document.querySelectorAll( '.customizer-curation-list' );
+
+	if ( autoLists ) {
+		[].forEach().call( autoLists, ( el ) => {
+			autoList( {
+				parent: el,
+				input: el.querySelector( '.customizer-curation-list-input' ),
+				list: el.querySelector( '.customizer-curation-list-list' ),
+				hidden: el.querySelector( '.customizer-curation-list-hidden' ),
+				listTemplate: createAutoSuggestItem,
+				endpoint: `${CustomizerCuration.baseURL}/wp-json/wp/v2/${CustomizerCuration.resource}?search=`
+			} );
+		} );
+	}
 
 	autoItem( {
 		parent: '.customizer-curation',

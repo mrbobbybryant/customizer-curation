@@ -6,24 +6,15 @@ import hidden from './serialized-input';
 import { removeItems, dragItems, onDragObject, onRemoveObject } from './utilities';
 
 export default function ( args ) {
-	const fields = document.querySelectorAll( args.parent );
+	const Hidden = hidden( args.hidden );
+	const remove = removeItems( Hidden, onRemoveObject );
+	const drag = dragItems( Hidden, onDragObject );
+	const List = list( args.list, Object.assign( args, { onDrag: drag, onRemove: remove} ) );
 
-	if ( ! fields ) {
-		return false;
-	}
-
-	[].forEach.call( fields, ( autoList ) => {
-		const Hidden = hidden( autoList, args.hidden );
-		const hiddenEl = autoList.querySelector( args.hidden );
-		const remove = removeItems( Hidden, onRemoveObject );
-		const drag = dragItems( Hidden, onDragObject );
-		const List = list( autoList, Object.assign( args, { onDrag: drag, onRemove: remove} ) );
-
-		autoSuggest( args.input, args.endpoint, ( value, input ) => {
-			List.add( value );
-			input.value = '';
-			Hidden.add( value );
-			jQuery( hiddenEl ).trigger( 'change' );
-		} );
+	autoSuggest( args.input, args.endpoint, ( value, input ) => {
+		List.add( value );
+		input.value = '';
+		Hidden.add( value );
+		jQuery( args.hidden ).trigger( 'change' );
 	} );
 }
