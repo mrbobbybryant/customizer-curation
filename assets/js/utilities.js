@@ -1,4 +1,18 @@
 /* global jQuery */
+export const checkLimit = ( autoList ) => {
+	const children = autoList.querySelectorAll( 'li' );
+	const field = autoList.querySelector( '.customizer-curation-list-input' );
+	const max = field.getAttribute( 'data-max' );
+
+	if ( max ) {
+		if ( children.length < parseInt( max, 10 ) ) {
+			field.removeAttribute( 'disabled' );
+		} else {
+			field.setAttribute( 'disabled', true );
+		}
+	}
+};
+
 export const removeItems = ( Hidden, onRemove, autoList ) => {
 	return ( value ) => {
 		Hidden.remove( value, onRemove );
@@ -41,19 +55,4 @@ export const onRemoveObject = ( currentValue, newValue ) => {
 
 export const onRemoveText = ( currentValue, newValue ) => {
 	return currentValue.filter( ( current ) => current !== newValue );
-};
-
-
-export const checkLimit = ( autoList ) => {
-	const children = autoList.querySelectorAll('li');
-	const field = autoList.querySelector( '.customizer-curation-list-input' );
-	const max = field.getAttribute( 'data-max' );
-
-	if ( max ) {
-		if ( children.length < parseInt( max, 10 ) ) {
-			field.removeAttribute( 'disabled' );
-		} else {
-			field.setAttribute( 'disabled', true );
-		}
-	}
 };
