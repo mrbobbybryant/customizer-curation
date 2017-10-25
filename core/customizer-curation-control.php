@@ -18,6 +18,8 @@ class Customizer_Curation extends WP_Customize_Control {
 
 	public $list = false;
 
+    private $max = false;
+
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 
@@ -38,6 +40,14 @@ class Customizer_Curation extends WP_Customize_Control {
 		if ( isset( $args['placeholder'] ) && ! empty( $args['placeholder']) ) {
 			$this->placeholder = $args['placeholder'];
 		}
+
+        if ( isset( $args['max'] ) || ! empty( $args['max'] ) ) {
+            if ( ! is_numeric( $args['max'] ) ) {
+                throw new Exception( 'Customizer Curator expects Max argument to be a number.' );
+            }
+
+            $this->max = $args['max'];
+        }
 
         $this->options = $this->fetch_initial_options();
 	}
@@ -107,6 +117,10 @@ class Customizer_Curation extends WP_Customize_Control {
 			$values = [];
 		}
 
+        $disabled = ( count( $values ) === $this->max ) ? 'disabled' : '';
+        $max = ( $this->max ) ? sprintf('data-max="%s"', $this->max ) : '';
+
+
 	    ob_start(); ?>
 
         <div class="customizer-curation-list">
@@ -118,6 +132,8 @@ class Customizer_Curation extends WP_Customize_Control {
                 class="customizer-curation-list-input"
                 id="customizer-curation-input-<?php echo $this->id; ?>"
                 list="<?php echo $this->id; ?>"
+                <?php echo $max;?>
+                <?php echo $disabled;?>
             />
             <datalist id="<?php echo $this->id; ?>">
 		        <?php echo $this->render_initial_options() ?>
