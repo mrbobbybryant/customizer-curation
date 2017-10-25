@@ -11,16 +11,34 @@ export default function ( parent, hiddenInput ) {
 
 	};
 
+	const checkLimit = ( currentValue ) => {
+		const count = currentValue.length;
+		const field = parent.querySelector( '.customizer-curation-list-input' );
+		const max = field.getAttribute( 'data-max' );
+
+		if ( max ) {
+			if ( count < parseInt( max, 10 ) ) {
+				field.removeAttribute( 'disabled' );
+			} else {
+				field.setAttribute( 'disabled', true );
+			}
+		}
+	};
+
 	const addValue = ( value ) => {
 		let currentValue = getCurrentValue();
 
-		return currentValue.concat( value );
+		currentValue = currentValue.concat( value );
+		checkLimit( currentValue );
+		return currentValue;
 	};
 
 	const removeValue = ( value, onRemove ) => {
-		const currentValue = getCurrentValue();
+		let currentValue = getCurrentValue();
 
-		return onRemove( currentValue, value );
+		currentValue = onRemove( currentValue, value );
+		checkLimit( currentValue );
+		return currentValue;
 	};
 
 	return {
