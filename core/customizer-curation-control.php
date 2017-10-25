@@ -41,7 +41,7 @@ class Customizer_Curation extends WP_Customize_Control {
 			$this->placeholder = $args['placeholder'];
 		}
 
-        if ( isset( $args['max'] ) || ! empty( $args['max'] ) ) {
+        if ( isset( $args['max'] )  && ! empty( $args['max'] ) ) {
             if ( ! is_numeric( $args['max'] ) ) {
                 throw new Exception( 'Customizer Curator expects Max argument to be a number.' );
             }

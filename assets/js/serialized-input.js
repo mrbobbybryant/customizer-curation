@@ -12,9 +12,9 @@ export default function ( parent, hiddenInput ) {
 	};
 
 	const checkLimit = ( currentValue ) => {
-		var count = currentValue.length;
-		var field = parent.querySelector( '.customizer-curation-list-input' );
-		var max = field.getAttribute( 'data-max' );
+		const count = currentValue.length;
+		const field = parent.querySelector( '.customizer-curation-list-input' );
+		const max = field.getAttribute( 'data-max' );
 
 		if ( max ) {
 			if ( count < parseInt( max, 10 ) ) {
