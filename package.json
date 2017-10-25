@@ -2,7 +2,7 @@
   "name": "customizer-curation",
   "title": "Customizer Curation",
   "description": "An autosuggest field for curating content via the customizer.",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "homepage": "https://github.com/mrbobbybryant/customizer-curation",
   "scripts": {
     "start": "webpack --config webpack.config.js",
