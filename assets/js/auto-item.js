@@ -13,7 +13,7 @@ export default function ( args ) {
 		const hidden = autoItem.querySelector( args.hidden );
 
 		autoSuggest(
-			args.input,
+			autoItem.querySelector( args.input ),
 			args.endpoint,
 			( value, input ) => {
 				hidden.value = JSON.stringify( value );

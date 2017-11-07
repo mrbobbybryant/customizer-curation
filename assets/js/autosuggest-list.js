@@ -19,7 +19,7 @@ export default function ( args ) {
 		const drag = dragItems( Hidden, onDragObject );
 		const List = list( autoList, Object.assign( args, { onDrag: drag, onRemove: remove} ) );
 
-		autoSuggest( args.input, args.endpoint, ( value, input ) => {
+		autoSuggest( autoList.querySelector( args.input ), args.endpoint, ( value, input ) => {
 			List.add( value );
 			input.value = '';
 			Hidden.add( value );
