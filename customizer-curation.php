@@ -13,7 +13,7 @@ if ( !defined( 'CUSTOMIZER_CURATION_FILE' ) ) {
 }
 
 if ( !defined( 'CUSTOMIZER_CURATION_VERSION' ) ) {
-	define( 'CUSTOMIZER_CURATION_VERSION', '0.7.3' );
+	define( 'CUSTOMIZER_CURATION_VERSION', '0.8.0' );
 }
 
 if ( file_exists( CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php' ) ) {

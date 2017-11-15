@@ -55,7 +55,7 @@ class Customizer_Curation extends WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_script(
             'customizer-curation-js',
-            CUSTOMIZER_CURATION_URL . '/developwithwp/customizer-curation/dist/index.bundle.js',
+			local_url( 'dist/index.bundle.js', __DIR__ ),
             array( 'jquery' ),
             CUSTOMIZER_CURATION_VERSION,
             true
@@ -63,14 +63,14 @@ class Customizer_Curation extends WP_Customize_Control {
 
 		wp_enqueue_style(
 			'customizer-curation-css',
-			CUSTOMIZER_CURATION_URL . '/developwithwp/customizer-curation/dist/index.bundle.css',
-			array(),
+			local_url( 'dist/index.bundle.css', __DIR__ ),
+			array( 'dragula-css' ),
 			CUSTOMIZER_CURATION_VERSION
 		);
 
 		wp_enqueue_style(
 			'dragula-css',
-			OMG_FIELDS_URL . '/developwithwp/customizer-curation/node_modules/dragula/dist/dragula.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css',
 			array(),
 			OMG_FIELDS_VERSION
 		);
