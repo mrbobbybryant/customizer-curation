@@ -18,8 +18,10 @@ export default function ( args ) {
 		const remove = removeItems( Hidden, onRemoveObject, autoList );
 		const drag = dragItems( Hidden, onDragObject );
 		const List = list( autoList, Object.assign( args, { onDrag: drag, onRemove: remove} ) );
+		const localizedKey = `Curation_${autoList.dataset.id}`;
+		const endpoint = `${window[localizedKey].baseURL}/wp-json/wp/v2/${window[localizedKey].resource}?search=`;
 
-		autoSuggest( autoList.querySelector( args.input ), args.endpoint, ( value, input ) => {
+		autoSuggest( autoList.querySelector( args.input ), endpoint, ( value, input ) => {
 			List.add( value );
 			input.value = '';
 			Hidden.add( value );

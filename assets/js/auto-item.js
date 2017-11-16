@@ -11,10 +11,12 @@ export default function ( args ) {
 
 	[].forEach.call( fields, ( autoItem ) => {
 		const hidden = autoItem.querySelector( args.hidden );
+		const localizedKey = `Curation_${autoItem.dataset.id}`;
+		const endpoint = `${window[localizedKey].baseURL}/wp-json/wp/v2/${window[localizedKey].resource}?search=`;
 
 		autoSuggest(
 			autoItem.querySelector( args.input ),
-			args.endpoint,
+			endpoint,
 			( value, input ) => {
 				hidden.value = JSON.stringify( value );
 				jQuery( hidden ).trigger( 'change' );

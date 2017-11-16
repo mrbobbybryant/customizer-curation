@@ -75,15 +75,17 @@ class Customizer_Curation extends WP_Customize_Control {
 			OMG_FIELDS_VERSION
 		);
 
+		$localized_key = sprintf( 'Curation_%s', $this->id );
+
 		wp_localize_script(
 			'customizer-curation-js',
-			'CustomizerCuration',
-            [
-                'baseURL'   =>  site_url(),
-                'resource'  =>  $this->resource,
-                'list'      =>  $this->list
-            ]
-        );
+			$localized_key,
+			[
+				'baseURL'   =>  site_url(),
+				'resource'  =>  $this->resource,
+				'list'      =>  $this->list
+			]
+		);
 	}
 
 	public function render_content() {
@@ -123,7 +125,7 @@ class Customizer_Curation extends WP_Customize_Control {
 
 	    ob_start(); ?>
 
-        <div class="customizer-curation-list">
+        <div class="customizer-curation-list" data-id="<?php echo esc_attr( $this->id ); ?>">
 	        <?php echo $this->build_autosuggest_list( $values, 'customizer-curation-list-list' ); ?>
             <input
                 type="text"
@@ -164,7 +166,7 @@ class Customizer_Curation extends WP_Customize_Control {
     private function render_autosuggest( $values ) {
         ob_start(); ?>
 
-        <div class="customizer-curation">
+        <div class="customizer-curation" data-id="<?php echo esc_attr( $this->id ); ?>">
             <input
                 class="input__field customizer-curation-input"
                 placeholder="<?php echo esc_attr( $this->placeholder ); ?>"
