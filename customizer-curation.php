@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined('ABSPATH') ) {
+	return;
+}
+
 if ( !defined( 'CUSTOMIZER_CURATION_DIR' ) ) {
 	define( 'CUSTOMIZER_CURATION_DIR', dirname( __FILE__ ) );
 }
@@ -13,7 +17,7 @@ if ( !defined( 'CUSTOMIZER_CURATION_FILE' ) ) {
 }
 
 if ( !defined( 'CUSTOMIZER_CURATION_VERSION' ) ) {
-	define( 'CUSTOMIZER_CURATION_VERSION', '0.8.1' );
+	define( 'CUSTOMIZER_CURATION_VERSION', '0.9.0' );
 }
 
 if ( file_exists( CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php' ) ) {
