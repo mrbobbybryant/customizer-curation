@@ -1,7 +1,17 @@
 <?php
+/*
+Plugin Name:  Customizer Curation
+Plugin URI:   https://github.com/mrbobbybryant/customizer-curation
+Description:  An autosuggest field for curating content via the customizer.
+Version:      1.0.0
+Author:       Bobby Bryant
+Author URI:   https://github.com/mrbobbybryant
+License:      GPL2
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+*/
 
 if ( !defined('ABSPATH') ) {
-	return;
+	exit;
 }
 
 if ( !defined( 'CUSTOMIZER_CURATION_DIR' ) ) {
@@ -17,11 +27,12 @@ if ( !defined( 'CUSTOMIZER_CURATION_FILE' ) ) {
 }
 
 if ( !defined( 'CUSTOMIZER_CURATION_VERSION' ) ) {
-	define( 'CUSTOMIZER_CURATION_VERSION', '0.9.0' );
+	define( 'CUSTOMIZER_CURATION_VERSION', '1.0.0' );
 }
 
-if ( file_exists( CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php' ) ) {
-	require_once CUSTOMIZER_CURATION_DIR . '/vendor/autoload.php';
-}
+add_action( 'after_setup_theme', function() {
+	require_once CUSTOMIZER_CURATION_DIR . '/core/customizer-curation-control.php';
+	require_once CUSTOMIZER_CURATION_DIR . '/core/helpers.php';
+	require_once CUSTOMIZER_CURATION_DIR . '/core/validation_cb.php';
+} );
 
-\AaronHolbrook\Autoload\autoload( CUSTOMIZER_CURATION_DIR . '/core' );

@@ -1,4 +1,14 @@
 <?php
+/**
+ * File contains helper functions when using this field.
+ *
+ * @WordPress.
+ */
+
+if ( !defined('ABSPATH') ) {
+	exit;
+}
+
 function get_currated_values( $setting, $callback = false ) {
 	$values = get_theme_mod( $setting );
 

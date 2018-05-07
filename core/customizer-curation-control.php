@@ -1,7 +1,18 @@
 <?php
-if ( ! class_exists( 'WP_Customize_Control' ) ) {
-	return null;
+/**
+ * File contains the core customizer curation field class.
+ *
+ * @WordPress.
+ */
+
+if ( !defined('ABSPATH') ) {
+	exit;
 }
+
+if ( ! class_exists( 'WP_Customize_Control' ) ) {
+    return null;
+}
+
 class Customizer_Curation extends WP_Customize_Control {
 
     public $id;
@@ -55,15 +66,15 @@ class Customizer_Curation extends WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_script(
             'customizer-curation-js',
-			local_url( 'dist/index.bundle.js', __DIR__ ),
+            plugins_url( 'dist/index.bundle.js', __DIR__ ),
             array( 'jquery' ),
             CUSTOMIZER_CURATION_VERSION,
             true
         );
 
 		wp_enqueue_style(
-			'customizer-curation-css',
-			local_url( 'dist/index.bundle.css', __DIR__ ),
+            'customizer-curation-css',
+            plugins_url( 'dist/index.bundle.css', __DIR__ ),
 			array( 'dragula-css' ),
 			CUSTOMIZER_CURATION_VERSION
 		);

@@ -1,7 +1,7 @@
 {
 	"name": "developwithwp/customizer-curation",
 	"description": "An autosuggest field for curating content via the customizer.",
-	"type": "package",
+	"type": "wordpress-plugin",
 	"keywords": [],
 	"homepage": "https://github.com/mrbobbybryant/customizer-curation",
 	"license": "GPL-2.0+",
@@ -18,12 +18,7 @@
 			"url"  : "https://wpackagist.org"
 		}
 	],
-	"require": {
-		"aaronholbrook/autoload": "dev-master"
-	},
+	"require": {},
     "require-dev": {
-	},
-  "autoload": {
-      "files": [ "customizer-curation.php" ]
-  }
+	}
 }
